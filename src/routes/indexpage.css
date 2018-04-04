@@ -1,0 +1,10 @@
+.loginBox{
+    border: 1px solid #999;
+    border-radius: 5px;
+    width:400px;
+    margin: 50px auto;
+    padding: 20px;
+}
+.login-form-forgot{
+    float:right;
+}

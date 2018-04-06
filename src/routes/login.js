@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Button, Icon, notification } from 'antd';
 import { browserHistory } from 'react-router';
+import createHistory from 'history/createBrowserHistory';
 import './login.css';
 
 const FormItem = Form.Item;
@@ -18,10 +19,10 @@ class Login extends React.Component {
                 console.log('Received values of form: ', values);
                 let n = values.username;
                 let p = values.password;
-                if (n === 'ilovejasonbai' && p === 'ilovejasonbai') {
+                if (n === 'admin' && p === '888888') {
                     // 表单的路由处理    
                     document.cookie = "nowKey=" + "home";
-                    browserHistory.push('/');
+                    location.href = '/'
                 } else {
                     this.openNotificationWithIcon('info');
                 }

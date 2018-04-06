@@ -5,13 +5,15 @@ import 'antd/dist/antd.css';
 
 // 引入单个页面（包括嵌套的子页面）
 import Login from './routes/login';
+import Home from './routes/home'
 
 export default class Root extends React.Component {
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter >
                 <Switch>
                     <Route exact path="/login" component={Login}></Route>
+                    <Route exact path="/" component={Home}></Route>
                 </Switch>
             </BrowserRouter>
         )

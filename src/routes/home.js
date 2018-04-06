@@ -3,8 +3,9 @@ import Mock from 'mockjs';
 import ReactDOM from 'react-dom';
 import Sidebar from '../components/sidebar';
 import Topbar from '../components/topbar';
-import Title from '../components/title';
+import LineChart from '../components/chart';
 import { Card, Row, Col } from 'antd';
+
 import $ from 'jquery';
 import 'animate.css/animate.min.css';
 import './home.css'

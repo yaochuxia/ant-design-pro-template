@@ -1,25 +1,63 @@
 import React from 'react';
-import { Form, Input, Button, notification } from 'antd';
+import { Form, Input, Button, Icon, notification } from 'antd';
 import { browserHistory } from 'react-router';
-
-//import styles from './login.css';
+import './login.css';
 
 const FormItem = Form.Item;
 
 class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.openNotificationWithIcon = this.openNotificationWithIcon.bind(this)
+    };
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.form.validateFields((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+                let n = values.username;
+                let p = values.password;
+                if (n === 'ilovejasonbai' && p === 'ilovejasonbai') {
+                    // 表单的路由处理    
+                    document.cookie = "nowKey=" + "home";
+                    browserHistory.push('/');
+                } else {
+                    this.openNotificationWithIcon('info');
+                }
+            }
+        });
+    };
+    // 返回一个弹框对象，提示用户名和密码
+    openNotificationWithIcon(type) {
+        return notification[type]({
+            message: '用户名&&密码',
+            description: '用户名：admin，密码：888888',
+            duration: 6
+
+        })
+    }
     render() {
-        const { getFieldProps } = this.props.form;
+        const { getFieldDecorator } = this.props.form;
         return (
-            <div >
+            <div className="loginBox">
                 <Form onSubmit={this.handleSubmit} className="login-form">
-                    <FormItem label="姓名">
-                        <Input type="user_name" placeholder="请输入您的用户名" {...getFieldProps('user_name')} />
+                    <FormItem>
+                        {getFieldDecorator('username', {
+                            rules: [{ required: true, message: '请您输入用户名!' }],
+                        })(
+                            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="admin" />
+                        )}
                     </FormItem>
-                    <FormItem label="密码">
-                        <Input type="password" placeholder="请输入您的密码" {...getFieldProps('password')} />
+                    <FormItem>
+                        {getFieldDecorator('password', {
+                            rules: [{ required: true, message: '请你输入密码!' }],
+                        })(
+                            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="888888" />
+                        )}
                     </FormItem>
                     <Button type="primary" htmlType="submit" className="login-form-button">
-                        Log in
+                        登录
                     </Button>
                 </Form>
             </div>

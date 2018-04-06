@@ -11,7 +11,7 @@ export default class Root extends React.Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="/" component={Login}></Route>
+                    <Route exact path="/login" component={Login}></Route>
                 </Switch>
             </BrowserRouter>
         )

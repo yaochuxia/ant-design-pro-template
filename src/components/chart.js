@@ -1,6 +1,6 @@
 import React from 'react';
-import 'echarts/lib/chart/line' //图表类型
-import 'echarts/lib/component/tooltip'
+import 'echarts/lib/chart/line'; //图表类型
+import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/legend'
 
 //导入echarts
@@ -9,6 +9,8 @@ let echarts = require('echarts/lib/echarts'); //必须
 export default class LineChart extends React.Component {
     constructor(props) {
         super(props);
+        this.setLineOption = this.setLineOption.bind(this)
+        this.initLine = this.initLine.bind(this)
     };
     initLine() {
         const { data } = this.props;//外部传入的data数据
@@ -54,7 +56,7 @@ export default class LineChart extends React.Component {
     render() {
         return (
             <div className="ine-react">
-                <div style={{ width: "100%", height: "380px" }}></div>
+                <div ref="lineReact" style={{ width: "100%", height: "380px" }}></div>
             </div>
         )
     }

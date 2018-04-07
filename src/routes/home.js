@@ -3,9 +3,10 @@ import Mock from 'mockjs';
 import ReactDOM from 'react-dom';
 import Sidebar from '../components/sidebar';
 import Topbar from '../components/topbar';
+import { lineData } from '../components/data';
 import LineChart from '../components/chart';
 import { Card, Row, Col } from 'antd';
-
+import { connect } from 'dva';
 import $ from 'jquery';
 import 'animate.css/animate.min.css';
 import './home.css'
@@ -35,8 +36,7 @@ export default class Home extends React.Component {
                 // 需要绑定this
                 this.setState({ idx: data.idx })
             }.bind(this))
-    }
-
+    };
     render() {
         return (
             <div>
@@ -53,6 +53,7 @@ export default class Home extends React.Component {
                             })}
                         </Row>
                     </Card>
+                    <LineChart data={lineData.line} />
                 </div>
             </div>
         )

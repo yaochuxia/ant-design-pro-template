@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from '../components/sidebar';
-import Topbar from '../components/topbar';
+import Sidebar from '../components/Sidebar/sidebar';
+import Topbar from '../components/Topbar/topbar';
 import { connect } from 'dva';
 import { Table, Icon, Tooltip } from 'antd';
 

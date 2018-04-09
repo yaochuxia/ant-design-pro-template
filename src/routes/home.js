@@ -1,10 +1,10 @@
 import React from 'react';
 import Mock from 'mockjs';
 import ReactDOM from 'react-dom';
-import Sidebar from '../components/sidebar';
-import Topbar from '../components/topbar';
-import { lineData } from '../components/data';
-import LineChart from '../components/chart';
+import Sidebar from '../components/Sidebar/sidebar';
+import Topbar from '../components/Topbar/topbar';
+import LineChart from '../components/Chart/chart';
+import { lineData } from '../components/Chart/data';
 import { Card, Row, Col } from 'antd';
 import { connect } from 'dva';
 import $ from 'jquery';

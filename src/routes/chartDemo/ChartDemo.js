@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import MainLayout from '../../layouts/mainLayout/MainLayout';
 import Bar from '../../components/Charts/Bar';
 import Pie from '../../components/Charts/Pie';
@@ -60,7 +59,7 @@ export default class ChartDemo extends Component {
               // width={360} // 不设置宽度则宽度自适应父容器
               height={360} // 设置高度
               padding={30} // 可传入padding
-              // configs={{}} // 需要传入给chart的一些配置
+            // configs={{}} // 需要传入给chart的一些配置
             />
           </div>
           <div>
